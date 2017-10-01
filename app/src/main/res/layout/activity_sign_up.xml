@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context="com.example.kalyansai.blooddonation1.SignUp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="300dp"
+            android:id="@+id/EnterEmailField"
+            android:layout_height="wrap_content"
+            android:theme="@style/MyEditText1"
+            android:textColorHint="@color/white"
+            android:layout_centerHorizontal="true">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:fontFamily="serif"
+                android:inputType="textEmailAddress"
+                android:id="@+id/editTextEmail"
+                android:textColor="@color/white"
+                android:theme="@style/MyEditText1" />
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_below="@+id/EnterEmailField"
+            android:id="@+id/EnterPasswordField"
+            android:layout_height="wrap_content"
+            android:theme="@style/MyEditText1"
+            android:textColorHint="@color/white"
+            android:layout_centerHorizontal="true">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:id="@+id/editTextPassword"
+                android:textColor="@color/white" />
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="300dp"
+            android:id="@+id/EnterConformPassword"
+            android:layout_height="wrap_content"
+            android:theme="@style/MyEditText1"
+            android:textColorHint="@color/white"
+            android:layout_below="@+id/EnterPasswordField"
+            android:layout_alignLeft="@+id/EnterPasswordField"
+            android:layout_alignStart="@+id/EnterPasswordField">
+
+            <EditText
+                android:id="@+id/conformPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Conform Password"
+                android:inputType="textPassword"
+                android:textColor="@color/white" />
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="300dp"
+            android:id="@+id/DateOfBirth"
+            android:layout_height="wrap_content"
+            android:theme="@style/MyEditText1"
+            android:textColorHint="@color/white"
+            android:layout_below="@+id/EnterConformPassword"
+            android:layout_alignLeft="@+id/EnterConformPassword"
+            android:layout_alignStart="@+id/EnterConformPassword">
+            <EditText
+                android:id="@+id/DOB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Date Of Birth"
+                android:onClick="setDate"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="none"
+                android:textColor="@color/white" />
+        </android.support.design.widget.TextInputLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BloodGroup"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:layout_below="@+id/DateOfBirth"
+            android:layout_alignLeft="@+id/DateOfBirth"
+            android:layout_alignStart="@+id/DateOfBirth" />
+        <Spinner
+            android:id="@+id/bloodGroup"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="47dp"
+            android:spinnerMode="dialog"
+            android:layout_below="@+id/DateOfBirth"
+            android:layout_alignLeft="@+id/DateOfBirth"
+            android:layout_alignStart="@+id/DateOfBirth" />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="300dp"
+            android:id="@+id/Address"
+            android:layout_height="wrap_content"
+            android:theme="@style/MyEditText1"
+            android:textColorHint="@color/white"
+            android:layout_below="@+id/bloodGroup"
+            android:layout_alignLeft="@+id/bloodGroup"
+            android:layout_alignStart="@+id/bloodGroup">
+            <EditText
+                android:id="@+id/AddressBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address"
+                android:inputType="text"
+                android:textColor="@color/white" />
+        </android.support.design.widget.TextInputLayout>
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:id="@+id/submitinreg"
+            android:layout_marginTop="10dp"
+            android:layout_alignLeft="@+id/bloodGroup"
+            android:layout_alignStart="@+id/bloodGroup"
+            android:textColor="@color/white"
+            android:layout_below="@+id/Address"
+            android:background="@drawable/background_signup"/>
+
+    </RelativeLayout>
+</RelativeLayout>
