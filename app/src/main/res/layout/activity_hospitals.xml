@@ -5,24 +5,59 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
+    android:orientation="vertical"
     tools:context="com.example.kalyansai.blooddonation1.Hospitals">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Hospital"
+        android:text="Blood Require For"
         android:textColor="@color/white"
-        android:id="@+id/Text"
-        android:textSize="20dp"
+        android:textSize="18dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"/>
-    <ListView
-        android:layout_width="300dp"
-        android:layout_height="450dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/Text"
-        android:id="@+id/HospitalsList"
-        android:layout_centerHorizontal="true">
+        android:id="@+id/textView2" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Capture Doctor Referenced Page"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/BloodRequiredFor"
+        android:layout_marginTop="20dp"
+        android:id="@+id/text" />
+<ImageView
+    android:layout_width="300dp"
+    android:id="@+id/imageView"
+    android:layout_height="300dp"
+    android:layout_alignTop="@+id/CapureButton"
+    android:layout_alignLeft="@+id/BloodRequiredFor"
+    android:layout_alignStart="@+id/BloodRequiredFor"
+    android:layout_marginTop="51dp" />
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Capture Image"
+        android:id="@+id/CapureButton"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/text"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView" />
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/OkSubmit"
+        android:layout_alignBaseline="@+id/CapureButton"
+        android:layout_alignBottom="@+id/CapureButton"
+        android:layout_toRightOf="@+id/CapureButton"
+        android:layout_toEndOf="@+id/CapureButton" />
 
-    </ListView>
-
+    <Spinner
+        android:id="@+id/BloodRequiredFor"
+        android:layout_width="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="20dp" />
 </RelativeLayout>

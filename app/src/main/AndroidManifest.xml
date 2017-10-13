@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -26,9 +28,15 @@
         <activity android:name=".DonateBlood" />
         <activity android:name=".Quantity" />
         <activity android:name=".Otp" />
-        <activity android:name=".RetriveMultipleValues"/>
+        <activity android:name=".RetriveMultipleValues" />
         <activity android:name=".OtpVerification" />
-        <activity android:name=".Hospitals"></activity>
+        <activity android:name=".Hospitals" />
+        <activity android:name=".KazipetHospitals" />
+        <activity android:name=".HanamkondaHospital" />
+        <activity android:name=".WarangalHospital" />
+        <activity android:name=".Camera" />
+        <activity android:name=".FinalActivity" />
+        <activity android:name=".AddDataToList"></activity>
     </application>
 
 </manifest>

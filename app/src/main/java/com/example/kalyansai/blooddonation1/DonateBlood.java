@@ -17,18 +17,6 @@ public class DonateBlood extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donate_blood);
-        Firebase.setAndroidContext(this);
-        first = (EditText)findViewById(R.id.First);
-        second = (EditText)findViewById(R.id.Second);
-        submit = (Button)findViewById(R.id.submit);
-        mRef = new Firebase("https://blooddonation1-3dcaa.firebaseio.com/");
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String  value = first.getText().toString();
-                Firebase childRef = mRef.child("name");
-                childRef.setValue(value);
-            }
-        });
+
     }
 }

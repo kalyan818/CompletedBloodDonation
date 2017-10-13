@@ -25,28 +25,35 @@ import com.firebase.client.Query;
 import com.firebase.client.ValueEventListener;
 import com.firebase.client.core.view.View;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
 public class RetriveMultipleValues extends AppCompatActivity {
     private Firebase mRef,Mreference;
-    private EditText text;
+    private EditText text,text1;
     private Button submit;
-    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrive_multiple_values);
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         text =  (EditText)findViewById(R.id.First);
+        text1 = (EditText)findViewById(R.id.Second);
         submit  = (Button)findViewById(R.id.submit);
-        mRef = new Firebase("https://blooddonation1-3dcaa.firebaseio.com/");
         submit.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
+                DatabaseReference ref = FirebaseDatabase.getInstance()
+                        .getReferenceFromUrl("https://blooddonation1-3dcaa.firebaseio.com/Users");
                 String  value = text.getText().toString();
-                Firebase childRef = mRef.child("name");
-                childRef.setValue(value);
+                String key = text1.getText().toString();
+                DatabaseReference childref = ref.child("sai123");
+                DatabaseReference childref1 = childref.child("Emailgkghkh");
+                childref1.setValue("hloghkhgh");
             }
         });
     }

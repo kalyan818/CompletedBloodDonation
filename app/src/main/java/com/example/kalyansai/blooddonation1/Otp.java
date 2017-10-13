@@ -53,6 +53,7 @@ public class Otp extends AppCompatActivity {
         GetOtp = (Button)findViewById(R.id.SendOtp);
         VerifyOtp = (Button)findViewById(R.id.verify);
         VerifyOtp.setEnabled(false);
+        final String mobileNumber = getIntent().getStringExtra("mobileNumber");
         String dateofbirth = getIntent().getStringExtra("dateofbirth");
         String address = getIntent().getStringExtra("address");
         progressDialog1 = new ProgressDialog(this);
@@ -129,17 +130,29 @@ public class Otp extends AppCompatActivity {
                         Toast.makeText(Otp.this, "enter Mobile Number", Toast.LENGTH_LONG).show();
                     }else
                     {
-                        progressDialog1.setMessage("Loading.....");
-                        progressDialog1.show();
-                        progressDialog1.setCancelable(false);
-                        progressDialog1.setCanceledOnTouchOutside(false);
-                        //pass control to login method
-                        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                                "+91"+MobileNumber.getText().toString(),        // Phone number to verify
-                                60,                 // Timeout duration
-                                TimeUnit.SECONDS,   // Unit of timeout
-                                Otp.this,               // Activity (for callback binding)
-                                mCallbacks);
+                        if ((otp1.length()<=9)||(otp1.length()>=11))
+                        {
+                            Toast.makeText(Otp.this, "please enter 10 digit mobile number", Toast.LENGTH_LONG).show();
+                        }else {
+                            if (!otp1.equals(mobileNumber))
+                            {
+                                Toast.makeText(Otp.this,"previous you entered another number", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Otp.this,otp1, Toast.LENGTH_LONG).show();
+                                Toast.makeText(Otp.this,mobileNumber, Toast.LENGTH_LONG).show();
+                            }else {
+                                progressDialog1.setMessage("Loading.....");
+                                progressDialog1.show();
+                                progressDialog1.setCancelable(false);
+                                progressDialog1.setCanceledOnTouchOutside(false);
+                                //pass control to login method
+                                PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                                        "+91" + MobileNumber.getText().toString(),        // Phone number to verify
+                                        60,                 // Timeout duration
+                                        TimeUnit.SECONDS,   // Unit of timeout
+                                        Otp.this,               // Activity (for callback binding)
+                                        mCallbacks);
+                            }
+                        }
                     }
                 }
                 else {

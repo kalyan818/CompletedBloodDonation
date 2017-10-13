@@ -22,35 +22,41 @@ public class Quantity extends AppCompatActivity implements AdapterView.OnItemSel
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quantity);
         String s = getIntent().getStringExtra("key");
-        Toast.makeText(this,s,Toast.LENGTH_LONG).show();
         list = (ListView)findViewById(R.id.Locations);
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(this);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i == 0){
-                    Intent intent = new Intent(Quantity.this,Hospitals.class);
-                    intent.putExtra("place","0");
-                    startActivity(intent);
+                if (spinner.getSelectedItem() == "None")
+                {
+                    Toast.makeText(Quantity.this,"Select BloodGroup",Toast.LENGTH_LONG).show();
                 }
-                if (i == 1){
-                    Intent intent = new Intent(Quantity.this,Hospitals.class);
-                    intent.putExtra("place","1");
-                    startActivity(intent);
-                }
-                if (i == 2){
-                    Intent intent = new Intent(Quantity.this,Hospitals.class);
-                    intent.putExtra("place","2");
-                    startActivity(intent);
+                else {
+                    if (i == 0) {
+                        Intent intent = new Intent(Quantity.this, KazipetHospitals.class);
+                        intent.putExtra("place", "Kazipet");
+                        startActivity(intent);
+                    }
+                    if (i == 1) {
+                        Intent intent = new Intent(Quantity.this, HanamkondaHospital.class);
+                        intent.putExtra("place", "Hanamkonda");
+                        startActivity(intent);
+                    }
+                    if (i == 2) {
+                        Intent intent = new Intent(Quantity.this, WarangalHospital.class);
+                        intent.putExtra("place", "Warangal");
+                        startActivity(intent);
+                    }
                 }
             }
         });
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        spinner.setOnItemSelectedListener(this);
         List<String> categories = new ArrayList<String>();
         List<String> categories1 = new ArrayList<String>();
         categories1.add("Kazipet");
         categories1.add("Hanamkonda");
         categories1.add("Warangal");
+        categories.add("None");
         categories.add("100ml");
         categories.add("200ml");
         categories.add("300ml");
@@ -68,8 +74,6 @@ public class Quantity extends AppCompatActivity implements AdapterView.OnItemSel
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         String item = adapterView.getItemAtPosition(i).toString();
 
-        // Showing selected spinner item
-        Toast.makeText(adapterView.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
     }
 
     @Override
