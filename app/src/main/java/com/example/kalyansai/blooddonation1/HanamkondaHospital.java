@@ -27,7 +27,7 @@ public class HanamkondaHospital extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String item = adapterView.getItemAtPosition(i).toString();
-                Intent intent = new Intent(HanamkondaHospital.this,AddDataToList.class);
+                Intent intent = new Intent(HanamkondaHospital.this,Hospitals.class);
                 intent.putExtra("Hospital",item);
                 startActivity(intent);
             }

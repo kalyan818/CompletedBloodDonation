@@ -7,6 +7,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -56,10 +57,19 @@ public class Blood extends AppCompatActivity implements View.OnClickListener {
             finish();
         }
     }
+    /*@Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if ((keyCode == KeyEvent.KEYCODE_BACK))
+        {
+
+        }
+        return super.onKeyDown(keyCode, event);
+    }*/
 
     private void Quit() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Your details will be added to donars list make sure that your medically fit to donate blood ")
+        builder.setMessage("Your details will be added to donars list make sure that your medically fit to donate blood.")
                 .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

@@ -34,6 +34,7 @@ public class AddDataToList extends AppCompatActivity {
                 .getReferenceFromUrl("https://blooddonation1-3dcaa.firebaseio.com/Doners/");
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,mUsernames);
         list = (ListView)findViewById(R.id.ListPanel);
+        Toast.makeText(this,mUsernames.get(1),Toast.LENGTH_LONG).show();
         progressDialog = new ProgressDialog(this);
         list.setAdapter(arrayAdapter);
         progressDialog.setMessage("Loading.......");

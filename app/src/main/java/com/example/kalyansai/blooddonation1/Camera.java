@@ -13,24 +13,25 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 
 public class Camera extends AppCompatActivity {
 private Button capture;
-    private ImageView imageView;
+    ImageView imageView1;
     static final int cam_request = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
         capture = (Button)findViewById(R.id.capture);
-        imageView = (ImageView)findViewById(R.id.imageView);
+        imageView1 = (ImageView)findViewById(R.id.imageView);
         capture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                File file = getFile();
-                camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
-                startActivityForResult(camera_intent,cam_request);
+                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent,1888);
             }
         });
     }
@@ -47,10 +48,28 @@ private Button capture;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == cam_request && resultCode == RESULT_OK) {
+        if (requestCode == 1888) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            imageView1.setImageBitmap(imageBitmap);
+        }
+        /*if (requestCode == cam_request && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             imageView.setImageBitmap(imageBitmap);
-        }
+            File file;
+            String path = Environment.getExternalStorageDirectory().toString();
+            file  = new File(path,"camera"+".jpg");
+            try{
+                OutputStream stream = null;
+                stream = new FileOutputStream(file);
+                imageBitmap.compress(Bitmap.CompressFormat.JPEG,100,stream);
+                stream.flush();
+                stream.close();
+            }catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }*/
     }
 }
